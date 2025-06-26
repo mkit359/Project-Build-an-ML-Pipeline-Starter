@@ -54,6 +54,7 @@ def go(config: DictConfig):
             _ = mlflow.run(
                 os.path.join(hydra.utils.get_original_cwd(), "src", "basic_cleaning"),
                 "main",
+                env_manager="conda",
                 parameters={
                     "input_artifact": "sample.csv:latest",  
                     "output_artifact": "cleaned_sample.csv",
