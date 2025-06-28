@@ -66,9 +66,18 @@ def go(config: DictConfig):
         )
 
         if "data_check" in active_steps:
-            ##################
-            # Implement here #
-            ##################
+            _ = mlflow.run(
+                os.path.join(hydra.utils.get_original_cwd(),"src", "data_check"),
+                "main",
+                env_manager = "conda",
+                parameters={
+                    "csv": "nyc_airbnb/cleaned_data.csv:latest",
+                    "ref": "nyc_airbnb/cleaned_data.csv:reference",
+                    "kl_threshold": config['data_check']['k1_threshold'],
+                    "min_price": config['etl']['min_price'],
+                    "max_price": config['etl']['max_price']
+                },
+            )
             pass
 
         if "data_split" in active_steps:
