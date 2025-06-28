@@ -30,7 +30,7 @@ def test_column_names(data):
     assert list(expected_colums) == list(these_columns)
 
 
-def test_neighborhood_names(data):
+def test_neighborhood_names(data: pd.DataFrame):
 
     known_names = ["Bronx", "Brooklyn", "Manhattan", "Queens", "Staten Island"]
 
@@ -64,4 +64,4 @@ def test_row_count(data: pd.DataFrame):
     assert 15000 < data.shape[0] < 1000000
 
 def test_price_range(data: pd.DataFrame, min_price: float, max_price: float):
-    assert data['price'].between(min_price,max_price)
+    assert data['price'].between(min_price,max_price).all()
