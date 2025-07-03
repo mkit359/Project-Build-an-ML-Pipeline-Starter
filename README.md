@@ -179,3 +179,9 @@ Please, make sure all steps are using **the same** python version and that you h
 ## License
 
 [License](LICENSE.txt)
+
+### WANDB
+
+https://wandb.ai/mkit359/nyc_airbnb/
+
+
